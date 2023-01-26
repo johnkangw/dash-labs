@@ -28,5 +28,4 @@ layout = html.Div(
 )
 def display_color(mean, std):
     data = np.random.normal(mean, std, size=500)
-    fig = px.histogram(data, nbins=30, range_x=[-10, 10])
-    return fig
+    return px.histogram(data, nbins=30, range_x=[-10, 10])

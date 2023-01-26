@@ -36,5 +36,4 @@ layout = html.Div(
     Output("pie-chart", "figure"), [Input("names", "value"), Input("values", "value")]
 )
 def generate_chart(names, values):
-    fig = px.pie(df, values=values, names=names)
-    return fig
+    return px.pie(df, values=values, names=names)

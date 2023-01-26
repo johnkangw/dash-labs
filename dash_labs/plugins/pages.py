@@ -202,21 +202,16 @@ def _infer_image(module):
     logo_file = None
     for fn in files_in_assets:
         fn_without_extension = fn.split(".")[0]
-        if fn_without_extension == page_id or fn_without_extension == page_id.replace(
-            "_", "-"
-        ):
+        if fn_without_extension in [page_id, page_id.replace("_", "-")]:
             return fn
 
         if fn_without_extension == "app":
             app_file = fn
 
-        if fn_without_extension == "logo":
+        elif fn_without_extension == "logo":
             logo_file = fn
 
-    if app_file:
-        return app_file
-
-    return logo_file
+    return app_file or logo_file
 
 
 def _filename_to_name(filename):

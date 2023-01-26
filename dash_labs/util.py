@@ -87,16 +87,10 @@ def insert_into_ordered_dict(odict, value, key=None, before=None, after=None):
     if before is None and after is None:
         insert_index = len(odict)
     elif before is not None:
-        if isinstance(before, int):
-            before_index = before
-        else:
-            before_index = keys.index(before)
+        before_index = before if isinstance(before, int) else keys.index(before)
         insert_index = before_index
     else:  # after is not None:
-        if isinstance(after, int):
-            after_index = after
-        else:
-            after_index = keys.index(after)
+        after_index = after if isinstance(after, int) else keys.index(after)
         insert_index = after_index + 1
 
     # User insert index as name if none provided
